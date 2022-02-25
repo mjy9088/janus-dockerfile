@@ -6,5 +6,4 @@ node index
 
 # 1: main? -	/bin/bash
 docker run -dit --name=janus-test --rm -p 0.0.0.0:8088:8088 -p 0.0.0.0:8188:8188 janus-test:0.0.1
-docker cp ~/Downloads/test.wav janus-test:/root/test.wav
 docker logs janus-test --tail --follow
