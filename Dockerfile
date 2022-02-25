@@ -59,4 +59,4 @@ RUN mkdir -p ~/tmp_install && cd ~/tmp_install \
     && make install \
     && make configs
 
-CMD /opt/janus/bin/janus -d7
+CMD /opt/janus/bin/janus -d5
