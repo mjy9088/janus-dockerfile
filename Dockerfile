@@ -57,10 +57,6 @@ RUN mkdir -p ~/tmp_install && cd ~/tmp_install \
     && ./configure --prefix=/opt/janus \
     && make \
     && make install \
-    && make configs \
-    && mkdir /var/log/janus \
-    && touch /var/log/janus/janus.log
-COPY ./janus.service /etc/systemd/system/janus.service
-COPY ./janus.logrotate /etc/logrotate.d/janus
+    && make configs
 
-RUN pip3 install meson
+CMD /opt/janus/bin/janus -d7
