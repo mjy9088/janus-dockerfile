@@ -15,4 +15,4 @@ RUN rm -rf ~/dist \
     && mkdir -p ~/dist/lib \
     && mkdir -p ~/dist/include \
     && cp -P /usr/local/lib/libjansson.* ~/dist/lib/ \
-    && cp -rH /usr/local/include/jansson*.h ~/dist/include
+    && cp -rH /usr/local/include/jansson*.h ~/dist/include/

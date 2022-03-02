@@ -5,8 +5,7 @@ RUN apt update \
         libglib2.0-dev pkg-config libssl-dev libgupnp-igd-1.0-dev libgstreamer1.0-dev \
     && pip3 install meson
 
-COPY --from=jansson:2.14 /usr/local/lib/libjansson* /usr/local/lib/
-COPY --from=jansson:2.14 /usr/local/include/jansson* /usr/local/include/
+COPY --from=libjansson:2.14 /root/dist/. /usr/
 
 RUN git clone --branch 0.1.18 --depth 1 https://github.com/libnice/libnice.git ~/source
 
