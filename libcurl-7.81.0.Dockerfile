@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-RUN apt update && apt install -y git cmake
+RUN apt update && apt install -y git cmake autoconf libtool
 
 COPY --from=openssl:3.0.1 /root/dist/. /usr/
 
@@ -20,4 +20,4 @@ RUN cd ~/source \
 RUN rm -rf ~/dist \
     && mkdir -p ~/dist/lib \
     && cp -P /usr/local/lib/libcurl.* ~/dist/lib/ \
-    && cp -rH /usr/local/include/srtp2 ~/dist/include/
+    && cp -rH /usr/local/include/curl ~/dist/include/
