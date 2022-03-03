@@ -6,13 +6,12 @@ RUN git clone --branch 0.9.5.0 --depth 1 https://github.com/sctplab/usrsctp.git 
 
 RUN mkdir ~/builddir \
     && cd ~/builddir \
-    && cmake ~/source \
+    && cmake ~/source -DCMAKE_INSTALL_PREFIX:PATH=~/tmp -DCMAKE_INSTALL_LIBDIR=lib \
     && make \
     # No test?
     && make install
 
 RUN rm -rf ~/dist \
     && mkdir -p ~/dist/lib \
-    && mkdir -p ~/dist/include \
-    && cp -P /usr/local/lib/libusrsctp.* ~/dist/lib/ \
-    && cp /usr/local/include/usrsctp.* ~/dist/include/
+    && cp -P ~/tmp/lib/libusrsctp.* ~/dist/lib/ \
+    && cp -rH ~/tmp/include ~/dist/
