@@ -16,4 +16,4 @@ RUN rm -rf ~/dist \
     && mkdir -p ~/dist/include \
     && cp -P /usr/local/lib/libconfig.* ~/dist/lib/ \
     && cp -P /usr/local/lib/libconfig++.* ~/dist/lib/ \
-    && cp /usr/local/include/libconfig.* ~/dist/include/
+    && cp -rH /usr/local/include/libconfig.* ~/dist/include/

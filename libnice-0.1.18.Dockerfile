@@ -16,7 +16,8 @@ RUN cd ~/source \
     && ninja -C builddir install
 
 RUN rm -rf ~/dist \
-    && mkdir -p ~/dist/lib \
+    && mkdir -p ~/dist/lib/pkgconfig \
     && mkdir -p ~/dist/include \
     && cp -P /usr/local/lib/libnice.* ~/dist/lib/ \
+    && cp -P /usr/local/lib/pkgconfig/nice.pc ~/dist/lib/pkgconfig/ \
     && cp -rH /usr/local/include/nice ~/dist/include/

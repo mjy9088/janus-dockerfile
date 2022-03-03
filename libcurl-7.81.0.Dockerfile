@@ -1,17 +1,13 @@
 FROM ubuntu:18.04
 
-RUN apt update && apt install -y git cmake autoconf libtool
+RUN apt update && apt install -y git make autoconf libtool
 
 COPY --from=openssl:3.0.1 /root/dist/. /usr/
 
 RUN git clone --branch curl-7_81_0 --depth 1 https://github.com/curl/curl.git ~/source
 
 RUN cd ~/source \
-    && libtoolize \
-    && aclocal \
-    && autoheader \
-    && automake --add-missing \
-    && autoconf \
+    && autoreconf -fi \
     && ./configure --with-openssl \
     && make \
     && make test \
