@@ -6,8 +6,6 @@ COPY --from=openssl:3.0.1 /root/dist/. /usr/
 
 RUN git clone --branch v2.4.2 --depth 1 https://github.com/cisco/libsrtp.git ~/source
 
-RUN ls -l /usr/local/lib && sleep 10
-
 RUN cd ~/source \
     && ./configure --enable-openssl --enable-nss \
     && make \
