@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.jcfg": "libconfig",
+        "*.jcfg.sample": "libconfig",
+    }
+}
